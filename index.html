@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Library</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  
+  <h1>Recipe Library</h1>
+
+  <div class="filters">
+    <div class="filter-diet">
+
+      <h2>Dietary Preference</h2>
+
+        <input 
+        type="radio" 
+        name="diet" 
+        value="all" 
+        checked>
+        <label for="all">All</label>
+
+        <input 
+        type="radio" 
+        name="diet" 
+        value="vegetarian">
+        <label for="vegetarian">Vegetarian</label>
+
+        <input 
+        type="radio" 
+        name="diet" 
+        value="vegan">
+        <label for="vegan">Vegan</label>
+
+        <input type="radio" name="diet" value="gluten-free"><label for="gluten-free">Gluten-Free</label>
+
+        <input 
+        type="radio" 
+        name="diet" 
+        value="dairy-free">
+        <label for="dairy-free">Dairy-Free</label>
+
+    </div>
+
+    <div class="sort-time">
+
+      <h2>Sort by Time</h2>
+
+        <input 
+        type="radio" 
+        name="sort-time" 
+        value="asc">
+        <label for="asc">Ascending</label>
+
+        <input 
+        type="radio" 
+        name="sort-time" 
+        value="desc">
+        <label for="desc">Descending</label>
+        
+    </div>
+    
+  </div>
+</body>
+</html>

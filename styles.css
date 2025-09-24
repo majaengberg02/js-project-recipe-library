@@ -1,0 +1,24 @@
+/*Background*/
+body {
+  margin-top: 60px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/*Text styles*/
+h1 { /*Big blue header*/
+  font-family: sans-serif;
+  font-weight: 800; /*Bold*/
+  font-size: 40pt;
+  color: #0018A4;
+}
+
+h2 { /*Filter names*/
+  font-family: sans-serif;
+  font-size: 11pt;
+  font-weight: 800; /*Bold*/
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+
