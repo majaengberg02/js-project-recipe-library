@@ -32,11 +32,12 @@ h2 { /*Filter names*/
 .filter-diet {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .filter-diet label {
-  height: auto;
+  height: 32px;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -62,11 +63,12 @@ h2 { /*Filter names*/
 .sort-time {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .sort-time label {
-  height: auto;
+  height: 32px;
   width: auto;
   padding-left: 20px;
   padding-right: 20px;

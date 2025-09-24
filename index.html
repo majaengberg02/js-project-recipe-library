@@ -12,10 +12,10 @@
   <h1>Recipe Library</h1>
 
   <div class="filters">
-    <div class="filter-diet">
-
+    <div class="filtername-and-buttons">
       <h2>Dietary Preference</h2>
 
+      <div class="filter-diet">
         <input 
         type="radio" 
         name="diet" 
@@ -52,29 +52,32 @@
         id="dairy-free">
         <label for="dairy-free" class="diet-label">Dairy-Free</label>
 
+      </div>
     </div>
 
-    <div class="sort-time">
-
-      <h2>Sort by Time</h2>
-
-        <input 
-        type="radio" 
-        name="sort-time" 
-        value="asc"
-        id="asc"
-        checked>
-        <label for="asc" class="time-label">Ascending</label>
-
-        <input 
-        type="radio" 
-        name="sort-time" 
-        value="desc"
-        id="desc">
-        <label for="desc" class="time-label">Descending</label>
-
-    </div>
     
+
+      <div class="filtername-and-buttons"><h2>Sort by Time</h2>
+
+        <div class="sort-time">
+          
+          <input 
+          type="radio" 
+          name="sort-time" 
+          value="desc"
+          id="desc"
+          checked>
+          <label for="desc" class="time-label">Descending</label>
+          
+          <input 
+          type="radio" 
+          name="sort-time" 
+          value="asc"
+          id="asc">
+          <label for="asc" class="time-label">Ascending</label>
+
+        </div>
+      </div>
   </div>
 </body>
 </html>
