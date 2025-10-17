@@ -23,13 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
     renderRecipes(filtered);
   }
 
-  // Add event listeners to all filter and sort radio buttons
+  // Event listeners to all filter and sort radio buttons
   document.querySelectorAll('input[name="diet"], input[name="sort-time"]').forEach(input => {
     input.addEventListener("change", filterAndSortRecipes);
   });
 
   // Render recipes initially
   filterAndSortRecipes();
+
+  // Event listener for random recipe button
+  const randomBtn = document.getElementById('random-recipe-btn');
+  if (randomBtn) {
+    randomBtn.addEventListener('click', () => {
+      // Pick a random recipe from the array
+      const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+      // Render only the random recipe
+      renderRecipes([randomRecipe]);
+    });
+  }
 });
 
 // Fetch recipes from data.js
@@ -43,27 +54,29 @@ function renderRecipes(recipesArray) {
   recipesArray.forEach(recipe => {
     const card = document.createElement('article');
     card.className = 'recipe-card';
+    card.tabIndex = 0; // Makes card focusable for accessibility
+    card.style.cursor = 'pointer'; // Shows pointer on hover
 
     // Recipe card content
     let content = `
-     <img class="recipe-images" src="${recipe.image}" alt="${recipe.title}">
+      <img class="recipe-images" src="${recipe.image}" alt="${recipe.title}">
       <h3>${recipe.title}</h3>
       <hr>
-      <h4>Ready in: ${recipe.readyInMinutes} min | Servings: ${recipe.servings}</h4> 
-    `;
-    if (recipe.diets.length > 0) {
-      content += `<h4>Diet: ${recipe.diets.join(', ')}</h4>`;
-    }
-
-    content += `<hr>
+      <h4>Ready in: ${recipe.readyInMinutes} min | Servings: ${recipe.servings}</h4>
+      ${recipe.diets.length > 0 ? `<h4>Diet: ${recipe.diets.join(', ')}</h4>` : ''}
+      <hr>
       <h4>Ingredients</h4>
       <ul>
         ${recipe.extendedIngredients.map(ing => `<li>${ing.name}</li>`).join('')}
       </ul>
-      <p><a href="${recipe.sourceUrl}" target="_blank">View Recipe</a></p>
     `;
-    
+
     card.innerHTML = content;
+
+    // Make the whole card clickable
+    card.addEventListener('click', () => {
+      window.open(recipe.sourceUrl, '_blank');
+    });
 
     container.appendChild(card);
   });
