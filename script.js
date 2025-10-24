@@ -34,12 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event listener for random recipe button
   const randomBtn = document.getElementById('random-recipe-btn');
   if (randomBtn) {
-    randomBtn.addEventListener('click', () => {
-      // Pick a random recipe from the array
-      const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-      // Render only the random recipe
-      renderRecipes([randomRecipe]);
-    });
+    if (recipes.length === 0) {
+      randomBtn.disabled = true; // Disable button if no recipes
+    } else {
+      randomBtn.addEventListener('click', () => {
+        // Pick a random recipe from the array
+        const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+        // Render only the random recipe
+        renderRecipes([randomRecipe]);
+      });
+    }
   }
 });
 
