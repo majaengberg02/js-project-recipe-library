@@ -54,6 +54,8 @@ li {
   display: flex;
   flex-direction: row;
   gap: 40px;
+  flex-wrap: wrap;
+  
 }
 
 .filter-diet {
@@ -205,12 +207,6 @@ li {
 }
 
 .no-recipes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    max-width: 640px;
-    margin: 40px auto;
     padding: 20px;
     border-radius: 10px;
     background: #ffffff;
