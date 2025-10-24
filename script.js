@@ -44,12 +44,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Fetch recipes from data.js
- const recipes = getRecipes(); 
+const apiResult = getRecipes();
+const recipes = apiResult.recipes || [];
+const apiErrorMessage = apiResult.error || null;
 
 // Function to render recipe cards
 function renderRecipes(recipesArray) {
   const container = document.querySelector('.recipe-card-container');
   container.innerHTML = ""; // Clear previous cards
+
+  // Show message when no recipes to display
+  if (!recipesArray || recipesArray.length === 0) {
+    const message = apiErrorMessage
+      ? apiErrorMessage
+      : "No recipes found — try different filters or try again later.";
+    container.innerHTML = `<p class="no-recipes">${message}</p>`;
+    return;
+  }
 
   recipesArray.forEach(recipe => {
     const card = document.createElement('article');

@@ -204,6 +204,14 @@ li {
   border-radius: 10px;
 }
 
+.no-recipes {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-family: sans-serif;
+  font-size: 14pt;
+}
+
 @media (max-width: 600px) {
   .recipe-card {
     grid-column: span 4;
