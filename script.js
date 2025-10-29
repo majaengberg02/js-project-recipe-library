@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // fetches recipes and sets globals before rendering/adding listeners
+  const apiResult = await getRecipes();
+  let recipes = apiResult.recipes || [];
+  let apiErrorMessage = apiResult.error || null;
+
   // Function to filter and sort recipes, then render them
   function filterAndSortRecipes() {
     const dietInput = document.querySelector('input[name="diet"]:checked');
@@ -6,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const diet = dietInput ? dietInput.value : "all";
     const sort = sortInput ? sortInput.value : "desc";
 
-    
     // Filter
     let filtered = recipes;
     if (diet !== "all") {
@@ -47,17 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Fetch recipes from data.js
-const apiResult = getRecipes();
-const recipes = apiResult.recipes || [];
-const apiErrorMessage = apiResult.error || null;
-
 // Function to render recipe cards
 function renderRecipes(recipesArray) {
   const container = document.querySelector('.recipe-card-container');
   container.innerHTML = ""; // Clear previous cards
 
-  // Show message when no recipes to display
+  // Shows message when no recipes to display
   if (!recipesArray || recipesArray.length === 0) {
     const message = apiErrorMessage
       ? apiErrorMessage
@@ -88,7 +87,7 @@ function renderRecipes(recipesArray) {
 
     card.innerHTML = content;
 
-    // Make the whole card clickable
+    // Makes the whole card clickable
     card.addEventListener('click', () => {
       window.open(recipe.sourceUrl, '_blank');
     });
