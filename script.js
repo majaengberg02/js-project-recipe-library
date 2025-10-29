@@ -68,8 +68,6 @@ function renderRecipes(recipesArray) {
   recipesArray.forEach(recipe => {
     const card = document.createElement('article');
     card.className = 'recipe-card';
-    card.tabIndex = 0; // Makes card focusable for accessibility
-    card.style.cursor = 'pointer'; // Shows pointer on hover
 
     // Recipe card content
     let content = `
